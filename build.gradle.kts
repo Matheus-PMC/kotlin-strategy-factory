@@ -7,6 +7,7 @@ plugins {
 
 group = "com.payment"
 version = "0.0.1-SNAPSHOT"
+val springCloudAwsVersion: String by project
 
 java {
 	toolchain {
@@ -23,7 +24,7 @@ dependencies {
 	implementation("com.fasterxml.jackson.module:jackson-module-kotlin")
 	implementation("org.springframework.boot:spring-boot-starter-json")
 	implementation("org.jetbrains.kotlin:kotlin-reflect")
-	implementation(platform("io.awspring.cloud:spring-cloud-aws-dependencies:3.0.4"))
+	implementation(platform("io.awspring.cloud:spring-cloud-aws-dependencies:$springCloudAwsVersion"))
 	implementation("io.awspring.cloud:spring-cloud-aws-starter-sqs")
 	runtimeOnly("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.9.0")
 	testImplementation("org.springframework.boot:spring-boot-starter-test")
@@ -31,8 +32,7 @@ dependencies {
 	testRuntimeOnly("org.junit.platform:junit-platform-launcher")
 	implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core")
 	implementation("org.jetbrains.kotlinx:kotlinx-coroutines-jdk8")
-
-	implementation("com.fasterxml.jackson.core:jackson-databind:2.15.2")
+	implementation("com.fasterxml.jackson.core:jackson-databind")
 }
 
 kotlin {
